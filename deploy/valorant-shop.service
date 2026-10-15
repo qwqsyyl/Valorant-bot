@@ -1,0 +1,18 @@
+[Unit]
+Description=VALORANT CN daily shop QQ bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/valorant-qq-bot
+EnvironmentFile=%h/valorant-qq-bot/data/core.env
+EnvironmentFile=%h/valorant-qq-bot/data/bot.env
+ExecStart=%h/valorant-qq-bot/.venv/bin/python -m valorant_qq_bot.bot
+Restart=on-failure
+RestartSec=10
+UMask=0077
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

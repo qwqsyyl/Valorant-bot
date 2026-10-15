@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")/.."
+if [ -f data/core.env ]; then
+    set -a
+    . ./data/core.env
+    set +a
+fi
+exec .venv/bin/python -m valorant_qq_bot.shop_core_cli "$@"

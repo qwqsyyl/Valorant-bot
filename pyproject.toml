@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "valorant-cn-qq-bot-starter"
+version = "0.1.1"
+description = "CN VALORANT daily shop, match history and QQ bot"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+bot = ["nonebot2[fastapi]>=2.3,<3", "nonebot-adapter-onebot>=2.4,<3", "Pillow>=10,<13"]
+auth = ["keyring>=25,<27", "cryptography>=42,<47"]
+
+[tool.setuptools.packages.find]
+include = ["valorant_qq_bot*"]
+
+[tool.setuptools.package-data]
+valorant_qq_bot = ["assets/*.png", "assets/history-agents/*.png", "assets/history-agents/*.json"]

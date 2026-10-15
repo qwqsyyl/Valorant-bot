@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")/.."
+set -a
+if [ -f data/core.env ]; then
+    . ./data/core.env
+fi
+. ./data/bot.env
+set +a
+exec .venv/bin/python -m valorant_qq_bot.bot "$@"

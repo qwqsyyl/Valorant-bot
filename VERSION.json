@@ -1,0 +1,16 @@
+{
+  "edition": "runtime",
+  "version": "v0.1.1",
+  "source_commit": "a7c96300eabcb3c82fee0792360bd4b741b4bccf",
+  "source_committed_at": "2026-10-12T17:36:04+08:00",
+  "exported_at": "2026-10-15T16:50:26+08:00",
+  "excluded": [
+    "automated tests",
+    "research and observation commands",
+    "development documents",
+    "historical releases",
+    "runtime data and credentials",
+    "private Git history"
+  ],
+  "runtime_policy": "normal WT renewal every five minutes; research environment switches omitted"
+}
