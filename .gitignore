@@ -47,7 +47,7 @@
 !/valorant_qq_bot/assets/history-agents/efba5359-4016-a1e5-7626-b1ae76895940.png
 !/valorant_qq_bot/assets/history-agents/f94c3b30-42be-e959-889c-5aa313dba261.png
 !/valorant_qq_bot/assets/history-agents/index.json
-!/valorant_qq_bot/assets/shop-background-v1.png
+!/valorant_qq_bot/assets/card-background-fallback.png
 !/valorant_qq_bot/bot.py
 !/valorant_qq_bot/bot_messages.py
 !/valorant_qq_bot/daily_plugin.py
@@ -85,3 +85,13 @@
 !/valorant_qq_bot/shop_response.py
 !/valorant_qq_bot/shop_runtime.py
 !/valorant_qq_bot/shop_scheduler.py
+
+# Public user documentation and explicitly reviewed demonstration images.
+!/REQUIREMENTS.md
+!/docs/
+!/docs/images/
+!/docs/images/custom-background.png
+!/docs/images/shop-custom.jpg
+!/docs/images/history-custom.jpg
+!/docs/images/shop-default.jpg
+!/valorant_qq_bot/card_backgrounds.py

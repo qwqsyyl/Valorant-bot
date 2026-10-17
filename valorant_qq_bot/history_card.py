@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from .errors import ShopCheckError
-from .shop_backgrounds import choose_background, card_opacity
+from .card_backgrounds import load_background, card_opacity
 
 ASSETS = Path(__file__).parent / 'assets'
 ZONE = ZoneInfo('Asia/Shanghai')
@@ -57,20 +57,7 @@ def render_card(history):
     extra = (len(name_lines)-1)*42
     top = 458+extra
     width, height = 1200, max(808, top+(len(rows)-1)*218+198+152)
-    default = Path(os.environ.get('VALORANT_CARD_BACKGROUND') or ASSETS/'shop-background-v1.png')
-    image = None
-    for path in dict.fromkeys((choose_background(default), default)):
-        try:
-            with Image.open(path) as source:
-                if source.width*source.height > 8_000_000:
-                    continue
-                image = ImageOps.fit(source.convert('RGB'),(width,height),
-                    method=Image.Resampling.LANCZOS,centering=(0.75,0.22)).convert('RGBA')
-            break
-        except (OSError,ValueError,Image.DecompressionBombError):
-            continue
-    if image is None:
-        image = Image.new('RGBA',(width,height),'#141929')
+    image = load_background('history', (width, height), centering=(0.75, 0.22), color='#141929')
     overlay = Image.new('RGBA',image.size)
     draw = ImageDraw.Draw(overlay)
     for y in range(height):

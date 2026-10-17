@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from .errors import ShopCheckError
-from .shop_backgrounds import choose_background, card_opacity
+from .card_backgrounds import BackgroundConfig, load_background, card_opacity
 
 
 def shop_text(shop, display_name):
@@ -19,7 +19,7 @@ def render_card(shop, display_name, images=None):
     from PIL import Image, ImageDraw, ImageFont, ImageOps
     images = images or {}
     # Preserve the previous appearance unless the random pool is enabled.
-    enabled = bool(os.environ.get('VALORANT_CARD_BACKGROUND_DIR'))
+    enabled = BackgroundConfig.from_env('shop').mode == 'random'
     panel_alpha = card_opacity('VALORANT_CARD_PANEL_ALPHA', 96 if enabled else 206)
     weapon_alpha = card_opacity('VALORANT_CARD_WEAPON_ALPHA', 56 if enabled else 228)
     text_style = dict(stroke_width=2, stroke_fill='#171226') if enabled else {}
@@ -52,20 +52,7 @@ def render_card(shop, display_name, images=None):
                    for i in range(0, len(names), 2)]
     footer_y = top + sum(row_heights) + gap * max(0, len(row_heights) - 1) + 28
     width, height = 1800, max(1040, footer_y + 72)
-    default = Path(os.environ.get('VALORANT_CARD_BACKGROUND') or
-                   Path(__file__).parent / 'assets' / 'shop-background-v1.png')
-    background = choose_background(default)
-    image = None
-    for path in dict.fromkeys((background, default)):
-        try:
-            with Image.open(path) as source:
-                image = ImageOps.fit(source.convert('RGB'), (width, height),
-                                     method=Image.Resampling.LANCZOS, centering=(0.85, 0.3)).convert('RGBA')
-            break
-        except (OSError, ValueError, Image.DecompressionBombError):
-            continue
-    if image is None:
-        image = Image.new('RGBA', (width, height), '#171226')
+    image = load_background('shop', (width, height), centering=(0.85, 0.3))
     scrim = Image.new('RGBA', (width, 1))
     scrim.putdata([(14, 10, 30, int(100 * max(0, 1 - x / 1300))) for x in range(width)])
     image = Image.alpha_composite(image, scrim.resize((width, height)))
