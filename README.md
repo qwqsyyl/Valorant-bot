@@ -1,8 +1,8 @@
 <div align="center">
 
-# 瓦bot · Valorant-bot
+# 无畏契约QQ机器人 · Valorant-bot
 
-**在 QQ 群里查看国服无畏契约商店、关注心愿皮肤、分享最近战绩。**
+**在 QQ 群里查看国服无畏契约商店、关注心愿皮肤、查看战绩。**
 
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![OneBot V11](https://img.shields.io/badge/OneBot-V11-24292F)
