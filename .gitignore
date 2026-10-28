@@ -6,10 +6,7 @@
 !/valorant_qq_bot/assets/
 !/valorant_qq_bot/assets/history-agents/
 !/.gitignore
-!/ASSETS.md
 !/README.md
-!/VERSION.json
-!/VERSION_HISTORY.md
 !/deploy/bot.env.example
 !/deploy/valorant-shop.service
 !/pyproject.toml

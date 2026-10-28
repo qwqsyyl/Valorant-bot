@@ -185,4 +185,4 @@ systemctl --user status valorant-shop.service
 | 提示重新扫码 | 登录维护每五分钟检查到期账号并通过 WT 更新，上游授权失效仍需本人重新扫码 |
 | 好友查询受限 | 使用发起人的授权和实际好友关系；上游不可见或非国服端游数据不保证可查 |
 
-素材说明见 [ASSETS.md](ASSETS.md)，公开版本变更见 [VERSION_HISTORY.md](VERSION_HISTORY.md)。
+素材与来源说明见 [README](README.md#素材说明)。
