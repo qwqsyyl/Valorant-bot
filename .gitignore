@@ -73,7 +73,6 @@
 !/valorant_qq_bot/saved_login.py
 !/valorant_qq_bot/setup_credentials.py
 !/valorant_qq_bot/shop_application.py
-!/valorant_qq_bot/shop_backgrounds.py
 !/valorant_qq_bot/shop_card.py
 !/valorant_qq_bot/shop_core_cli.py
 !/valorant_qq_bot/shop_domain.py
